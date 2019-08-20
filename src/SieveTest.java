@@ -1,5 +1,7 @@
 
 
+import javax.management.MXBean;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -8,21 +10,16 @@ public class SieveTest {
 	
 	@Test
 	public void outputTest() {
-		boolean[] test = new boolean[11];
-		for (int i = 0; i < test.length; i++) {
-			if (i != 0 && i != 1) {
-				test[i] = false;	
-			} else {
-				test[i] = true;
-			}
-		}	
-		classUnderTest.sieve(test);
+		int maxValTest = 10;
+		boolean[] test = new boolean[maxValTest + 1];
+		
+		classUnderTest.sieve(test, maxValTest);
 		
 		for (int i = 0; i < 11; i++) {
 			System.out.println(test[i]);	
 		}
 		
-		boolean[] expected = new boolean[11];
+		boolean[] expected = new boolean[maxValTest + 1];
 		
 		expected[0] = true;
 		expected[1] = true;

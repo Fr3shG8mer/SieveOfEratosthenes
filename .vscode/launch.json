@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - SieveOfEratosthenes",
+            "request": "launch",
+            "mainClass": "SieveOfEratosthenes",
+            "projectName": "Sieve of Eratosthenes"
+        }
+    ]
+}

@@ -3,17 +3,11 @@ public class SieveOfEratosthenes {
 	static int maxVal = 100;
 	static boolean[] crossedOut = new boolean[maxVal + 1];
 
-	public void sieve(boolean[] array) {
+	public void sieve(boolean[] array, int maxVal) {
+		array[0] = true;
+		array[1] = true;
 		
-		for (int i = 0; i < array.length; i++) {
-			if (i != 0 && i != 1) {
-				array[i] = false;	
-			} else {
-				array[i] = true;
-			}
-		}
-		
-		for (int i = 2; i <= maxVal; i++) {
+		for (int i = 2; i <= maxVal / i; i++) {
 			if (!array[i]) {
 				for (int j = 2; j <= maxVal / i; j++) {
 					array[j * i] = true;
@@ -25,10 +19,10 @@ public class SieveOfEratosthenes {
 	public static void main(String[] args) {
 		SieveOfEratosthenes sieveOfEratosthenes = new SieveOfEratosthenes();
 		
-		sieveOfEratosthenes.sieve(crossedOut);
+		sieveOfEratosthenes.sieve(crossedOut, maxVal);
 		
 		for (int i = 0; i <= maxVal; i++) {
-			if (!crossedOut[i] && i != 0 && i != 1) {
+			if (!crossedOut[i]) {
 				System.out.print(i + " ");
 			}
 		}
